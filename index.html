@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsIn | Play. Compete. Win</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/fevicon/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Sidebar -->
+    <header>
+        <div class="sidebar">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="sports.html"><i class="fas fa-football-ball"></i> Sports</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="messages.html"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>SportsIn</h2>
+        <video autoplay muted loop id="background-video">
+            <source src="assets/video/sportsin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Connect With Local Sports Players</h1>
+            <button id="hero-register-btn">Get Started</button>
+        </div>
+    </section>
+
+<!-- Registration/Pop-Up Modal -->
+<div id="registrationModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="form-container">
+            <!-- Step 1: Registration -->
+            <div class="form-step step-1 active">
+                <h2>Register</h2>
+                <form id="login-register-form">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="email-phone">Email/Phone No.:</label>
+                    <input type="text" id="email-phone" name="email-phone" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button type="button" id="register-btn">Register</button>
+                </form>
+            </div>
+
+            <!-- Step 2: Basic Registration -->
+            <div class="form-step step-2 basic-details">
+                <h2>Register</h2>
+                <form id="basic-details-form">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age" required>
+
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" name="height" placeholder="Enter your height" required>
+
+                    <label for="sport">Favorite Sport</label>
+                    <select id="sport" name="sport" required>
+                        <option value="" disabled selected>Select your sport</option>
+                        <option value="cricket">Cricket</option>
+                        <option value="football">Football</option>
+                    </select>
+
+                    <button type="button" id="next-to-sport-details">Next</button>
+                </form>
+            </div>
+
+<!-- Step 3: Cricket Details -->
+<div class="form-step step-3 cricket-details">
+    <h2>Cricket Details</h2>
+    <form id="cricket-details-form">
+        <h3>Batting</h3>
+        <label for="batting-hand">Which Hand</label>
+        <select id="batting-hand" name="battingHand" required>
+            <option value="" disabled selected>Select hand</option>
+            <option value="right">Right-Handed</option>
+            <option value="left">Left-Handed</option>
+        </select>
+
+        <label for="batting-order">Batting Order</label>
+        <select id="batting-order" name="battingOrder" required>
+            <option value="" disabled selected>Select order</option>
+            <option value="opener">Opener</option>
+            <option value="top">Top Order</option>
+            <option value="middle">Middle Order</option>
+            <option value="lower">Lower Order</option>
+        </select>
+
+        <h3>Bowling</h3>
+        <label for="bowling-hand">Which Hand</label>
+        <select id="bowling-hand" name="bowlingHand" required>
+            <option value="" disabled selected>Select hand</option>
+            <option value="right">Right-Handed</option>
+            <option value="left">Left-Handed</option>
+        </select>
+
+        <label for="bowling-type">Bowling Type</label>
+        <select id="bowling-type" name="bowlingType" required>
+            <option value="" disabled selected>Select type</option>
+            <option value="pacer">Pacer</option>
+            <option value="spinner">Spinner</option>
+        </select>
+
+        <div id="spinner-options" style="display: none;">
+            <label for="spinner-type">Spinner Type</label>
+            <select id="spinner-type" name="spinnerType">
+                <option value="" disabled selected>Select spinner type</option>
+                <option value="leg-break">Leg Break</option>
+                <option value="off-break">Off Break</option>
+            </select>
+        </div>
+
+        <button type="button" id="back-to-basic">Back</button>
+        <!-- Change Next to Submit -->
+        <button type="button" id="submit-cricket-form">Submit</button>
+    </form>
+</div>
+
+<!-- Step 3: Football Details -->
+<div class="form-step step-3 football-details">
+    <h2>Football Details</h2>
+    <form id="football-details-form">
+        <label for="position">Preferred Position</label>
+        <select id="position" name="position" required>
+            <option value="" disabled selected>Select position</option>
+            <option value="keeper">Goalkeeper</option>
+            <option value="attack">Attack</option>
+            <option value="defense">Defense</option>
+            <option value="midfielder">Midfielder</option>
+        </select>
+
+        <button type="button" id="back-to-basic-football">Back</button>
+        <!-- Change Next to Submit -->
+        <button type="button" id="submit-football-form">Submit</button>
+    </form>
+</div>
+    </div>
+</div>
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>
+            SportsIn is a platform designed to bring together local sports enthusiasts. Find players, form teams,
+            and participate in tournaments with ease!
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Platform Features</h2>
+        <div class="feature-container">
+            <div class="feature-box">
+                <i class="fa-solid fa-users"></i>
+                <h3>Find Local Players</h3>
+                <p>Discover players in your area and form teams.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-trophy"></i>
+                <h3>Join Tournaments</h3>
+                <p>Participate in tournaments and showcase your talent.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-user-plus"></i>
+                <h3>Build Your Network</h3>
+                <p>Connect with like-minded sports enthusiasts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SportsIn | Follow us on</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+<!-- JavaScript -->
+<script>
+// Modal Open and Close
+document.getElementById('hero-register-btn').addEventListener('click', () => {
+    document.getElementById('registrationModal').style.display = 'block';
+});
+document.querySelector('.close-btn').addEventListener('click', () => {
+    document.getElementById('registrationModal').style.display = 'none';
+});
+
+// Email and Password Validation
+function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return regex.test(email);
+}
+
+function validatePassword(password) {
+    return password.length >= 8;
+}
+
+// Step Navigation
+document.getElementById('register-btn').addEventListener('click', () => {
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email-phone').value;
+    const password = document.getElementById('password').value;
+
+    if (!username || !email || !password) {
+        alert("All fields are required!");
+    } else if (!validateEmail(email)) {
+        alert("Please enter a valid email address!");
+    } else if (!validatePassword(password)) {
+        alert("Password must be at least 8 characters long!");
+    } else {
+        document.querySelector('.step-1').classList.remove('active');
+        document.querySelector('.step-2').classList.add('active');
+    }
+});
+
+document.getElementById('next-to-sport-details').addEventListener('click', () => {
+    const sport = document.getElementById('sport').value;
+    if (!sport) {
+        alert("Please select your favorite sport!");
+    } else {
+        if (sport === "cricket") {
+            document.querySelector('.step-2').classList.remove('active');
+            document.querySelector('.cricket-details').classList.add('active');
+        } else if (sport === "football") {
+            document.querySelector('.step-2').classList.remove('active');
+            document.querySelector('.football-details').classList.add('active');
+        }
+    }
+});
+
+// Back to Basic (Cricket)
+document.getElementById('back-to-basic').addEventListener('click', () => {
+    document.querySelector('.cricket-details').classList.remove('active');
+    document.querySelector('.step-2').classList.add('active');
+});
+
+// Back to Basic (Football)
+document.getElementById('back-to-basic-football').addEventListener('click', () => {
+    document.querySelector('.football-details').classList.remove('active');
+    document.querySelector('.step-2').classList.add('active');
+});
+
+// Submit form in Cricket Details
+document.getElementById('submit-cricket-form').addEventListener('click', () => {
+    const battingHand = document.getElementById('batting-hand').value;
+    const battingOrder = document.getElementById('batting-order').value;
+    const bowlingHand = document.getElementById('bowling-hand').value;
+    const bowlingType = document.getElementById('bowling-type').value;
+    const spinnerType = document.getElementById('spinner-type').value;
+
+    if (!battingHand || !battingOrder || !bowlingHand || !bowlingType) {
+        alert("Please fill in all cricket details!");
+    } else {
+        // If spinner type is selected, it must also be filled
+        if (bowlingType === "spinner" && !spinnerType) {
+            alert("Please select your spinner type!");
+        } else {
+            // Prepare data to be sent to Google Sheets
+            const formData = {
+                username: document.getElementById('username').value,
+                emailPhone: document.getElementById('email-phone').value,
+                password: document.getElementById('password').value,
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                height: document.getElementById('height').value,
+                sport: document.getElementById('sport').value,
+                battingHand: battingHand,
+                battingOrder: battingOrder,
+                bowlingHand: bowlingHand,
+                bowlingType: bowlingType,
+                spinnerType: spinnerType
+            };
+
+            // Send data to Google Sheets
+            fetch('https://script.google.com/macros/s/AKfycbyhh9ngzQY0wiLuuArWrgbOv2nz-MadjyLx9t08Wtg/exec', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: { 'Content-Type': 'application/json' },
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Form submitted successfully!");
+                document.getElementById('registrationModal').style.display = 'none';
+                window.location.href = 'index.html'; // Redirect to index.html
+            })
+            .catch(error => {
+                alert("Error submitting form");
+                console.error('Error:', error);
+            });
+        }
+    }
+});
+
+// Submit form in Football Details
+document.getElementById('submit-football-form').addEventListener('click', () => {
+    const position = document.getElementById('position').value;
+
+    if (!position) {
+        alert("Please select your preferred football position!");
+    } else {
+        // Prepare data to be sent to Google Sheets
+        const formData = {
+            username: document.getElementById('username').value,
+            emailPhone: document.getElementById('email-phone').value,
+            password: document.getElementById('password').value,
+            name: document.getElementById('name').value,
+            age: document.getElementById('age').value,
+            height: document.getElementById('height').value,
+            sport: document.getElementById('sport').value,
+            position: position
+        };
+
+        // Send data to Google Sheets
+        fetch('https://script.google.com/macros/s/AKfycbyhh9ngzQY0wiLuuArWrgbOv2nz-MadjyLx9t08Wtg/exec', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Form submitted successfully!");
+            document.getElementById('registrationModal').style.display = 'none';
+            window.location.href = 'index.html'; // Redirect to index.html
+        })
+        .catch(error => {
+            alert("Error submitting form");
+            console.error('Error:', error);
+        });
+    }
+});
+</script>
+</body>
+</html>
